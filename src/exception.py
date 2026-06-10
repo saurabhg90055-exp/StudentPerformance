@@ -6,7 +6,7 @@ def error_meggase_detals(error, error_details:sys):
     filename = exc_tb.tb_frame.f_code.co_filename
     error_message = f"error occured in python name {0}, line number {1}, error message {2}".format(filename, exc_tb.tb_lineno, error)
     return error_message
-class CoustomExeption(Exception):
+class CustomException(Exception):
     def __init__(self, error_message, error_details:sys):
         super().__init__(error_message)
         self.error_message = error_meggase_detals(error_message, error_details)
@@ -19,4 +19,4 @@ if __name__ == "__main__":
         a = 1/0
     except Exception as e:
         logging.info("Divide by zero")
-        raise CoustomExeption(e, sys) 
+        raise CustomException(e, sys) 
