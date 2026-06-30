@@ -20,7 +20,8 @@ setup(
     author = 'Saurabh Gupta',
     author_email = 'saurabhg90055@gmail.com',
     packages = find_packages(),
-    install_requires = get_requirements('requirements.txt')
+    install_requires = get_requirements('requirements.txt'),
+    python_requires='>=3.13',
 
 
 )
