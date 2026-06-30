@@ -1,5 +1,5 @@
 <html>
-<body>
+<body style="background-color: black; color: aquamarine; ">
     <div class="login">
        <h1>Student Exam Performance Indicator</h1>
    
@@ -107,5 +107,9 @@
     <h2>
        THE  prediction is {{results}}
     </h2>
+    <div>
+        <h1>The Score is predicted on the basis of data given below:</h1>
+        <img src="{{ url_for('static', filename='images/pairplot.png') }}" alt="pairplot" style="max-width:100%; height:auto;">
+    </div>
    <body>
 </html>

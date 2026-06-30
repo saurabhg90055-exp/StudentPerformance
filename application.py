@@ -1,7 +1,8 @@
 from  flask import Flask,request, render_template
 import pandas as pd
 import numpy as np
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
@@ -31,6 +32,11 @@ def predict_datapoint():
         print(pred_df)
         predict_pipeline = PredictPipeline()
         results = predict_pipeline.predict(pred_df)
+
+        chart_data = pd.read_csv("artifacts\data.csv")
+        chart_one = sns.pairplot(chart_data,hue = 'gender')
+        chart_one.savefig("static/images/pairplot.png", bbox_inches='tight')
+        plt.close('all')
         return render_template('home.html', results=results[0])
     
 
